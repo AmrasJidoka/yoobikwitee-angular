@@ -1,1 +1,11 @@
-<p>jidokan-total-overview works!</p>
+<p-card [header]="jidokan.firstName" *ngFor="let jidokan of allJidokans">
+  <p-header>
+    <img class="presence-logo" [src]="jidokan.present ? '../../assets/images/logo-present.png' : '../../assets/images/logo.png'" height="1200" width="1200"/>
+  </p-header>
+  <p>{{jidokan.firstName}} {{jidokan.lastName}}</p>
+  <div class="presence-log">
+    <p>{{jidokan.present ? 'In the office' : 'Not in' }}</p>
+    <i *ngIf="jidokan.loginByVoice" class="pi pi-volume-up"></i>
+  </div>
+  <p-footer>{{jidokan.lastSeen}}</p-footer>
+</p-card>

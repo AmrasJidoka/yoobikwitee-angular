@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {RegistrationService} from '../../services/registration.service';
+import {Component, Input, OnInit} from '@angular/core';
 import {Jidokan} from '../../models/jidokan';
+import {RegistrationService} from '../../services/registration.service';
 
 @Component({
-  selector: 'app-jidokan-presence-overview',
-  templateUrl: './jidokan-presence-overview.component.html',
-  styleUrls: ['./jidokan-presence-overview.component.scss']
+  selector: 'app-evacuation-list',
+  templateUrl: './evacuation-list.component.html',
+  styleUrls: ['./evacuation-list.component.scss']
 })
-export class JidokanPresenceOverviewComponent implements OnInit {
+export class EvacuationListComponent implements OnInit {
   presentJidokans: Jidokan[];
 
   constructor(private registrationService: RegistrationService) {
@@ -36,13 +36,6 @@ export class JidokanPresenceOverviewComponent implements OnInit {
     ];
   }
 
-  startScanning = () => {
-    this.findPresentJidokans();
-    setInterval(() => {
-      this.findPresentJidokans();
-    }, 5000);
-  };
-
   findPresentJidokans = () => {
     this.registrationService.findAllPresentJidokans().subscribe(this.setPresentJidokans);
   };
@@ -50,4 +43,5 @@ export class JidokanPresenceOverviewComponent implements OnInit {
   setPresentJidokans = (jidokans: Jidokan[]) => {
     this.presentJidokans = jidokans;
   };
+
 }

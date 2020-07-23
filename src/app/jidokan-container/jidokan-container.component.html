@@ -1,1 +1,15 @@
-<p>jidokan-container works!</p>
+<div class="header-container">
+  <img class="title-logo" src="../../assets/images/logo.png"/>
+  <h1 class="title">Yoo-bik-wi-tee</h1>
+</div>
+<button class="evacuation-button" pButton type="button" label="Evacuate" routerLink="/evacuation-list"></button>
+<div class="container">
+<p-tabView>
+    <p-tabPanel class="tab-header" header="All Jidokans">
+      <app-jidokan-total-overview></app-jidokan-total-overview>
+    </p-tabPanel>
+    <p-tabPanel class="tab-header" header="Who's in?" [selected]="true">
+      <app-jidokan-presence-overview></app-jidokan-presence-overview>
+    </p-tabPanel>
+  </p-tabView>
+</div>
